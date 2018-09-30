@@ -8,7 +8,7 @@ public class LCATest {
 	@Test
 	public void testForEmptyTree() {
 		LCA tree = new LCA();
-		assertEquals("Empty Tree",tree.findLCA(0,0));
+		assertEquals(-1,tree.findLCA(0,0));
 	}
 	
 	
