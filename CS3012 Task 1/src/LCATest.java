@@ -31,7 +31,25 @@ public class LCATest {
 		LCA twoNodes = new LCA();
 		twoNodes.root = new Node(2);
 		twoNodes.root.right = new Node(3);
-		assertEquals("The lowest common ancestor of a tree with two nodes",-1,twoNodes.findLCA(2, 3));
+		assertEquals("The lowest common ancestor of a tree with two nodes",2,twoNodes.findLCA(2, 3));
+		
+	}
+	
+	//Test for tree size 7
+	@Test
+	public void treeSize() {
+		
+		LCA treeSizeSeven = new LCA();
+		treeSizeSeven.root = new Node(1);
+		treeSizeSeven.root.right = new Node(2);
+		treeSizeSeven.root.left = new Node(3);
+		treeSizeSeven.root.right.right = new Node(4);
+		treeSizeSeven.root.right.left = new Node(5);
+		treeSizeSeven.root.left.right = new Node(6);
+		treeSizeSeven.root.left.left = new Node(7);
+		
+		assertEquals("LCA (1,2)",1,treeSizeSeven.findLCA(1,2));
+		assertEquals("LCA (4,6)",1,treeSizeSeven.findLCA(4,6));
 		
 	}
 }
