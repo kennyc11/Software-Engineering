@@ -23,4 +23,15 @@ public class LCATest {
 		assertEquals(-1,node.findLCA(12, 0));
 	}
 	
+	
+	//Test for the existence of two nodes
+	@Test
+	public void testForTwoNodes() {
+		
+		LCA twoNodes = new LCA();
+		twoNodes.root = new Node(2);
+		twoNodes.root.right = new Node(3);
+		assertEquals("The lowest common ancestor of a tree with two nodes",-1,twoNodes.findLCA(2, 3));
+		
+	}
 }
