@@ -37,7 +37,7 @@ public class LCATest {
 	
 	//Test for tree size 7
 	@Test
-	public void treeSize() {
+	public void treeSizeSeven() {
 		
 		LCA treeSizeSeven = new LCA();
 		treeSizeSeven.root = new Node(1);
@@ -50,6 +50,24 @@ public class LCATest {
 		
 		assertEquals("LCA (1,2)",1,treeSizeSeven.findLCA(1,2));
 		assertEquals("LCA (4,6)",1,treeSizeSeven.findLCA(4,6));
+		
+	}
+	
+	//Test for non existing nodes
+	@Test
+	public void nonExistentNode() {
+		
+		LCA nonExistentNode = new LCA();
+		nonExistentNode.root = new Node(5);
+		nonExistentNode.root.left = new Node(8);
+		nonExistentNode.root.left.right = new Node(9);
+		nonExistentNode.root.right = new Node(12);
+		nonExistentNode.root.right.right = new Node(13);
+		nonExistentNode.root.right.left = new Node(17);
+		
+		assertEquals("LCA(12,21)",-1,nonExistentNode.findLCA(12, 21));
+		assertEquals("LCA(32,17)",-1,nonExistentNode.findLCA(32, 17));
+		
 		
 	}
 }
