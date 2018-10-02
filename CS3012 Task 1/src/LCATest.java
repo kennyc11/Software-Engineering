@@ -11,9 +11,9 @@ public class LCATest {
 		assertEquals(-1,tree.findLCA(0,0));
 	}
 
-	//Test for existence of one Node
+	//Test for existence of one node in tree
 	@Test
-	public void testForOneNode() {
+	public void testOneNode() {
 		LCA oneNode = new LCA();
 		oneNode.root = new Node(1);
 		assertEquals("The lowest common ancestor of a tree with one node:",-1,oneNode.findLCA(1,0));
@@ -24,9 +24,9 @@ public class LCATest {
 	}
 
 
-	//Test for the existence of two nodes
+	//Test for the existence of two nodes in tree
 	@Test
-	public void testForTwoNodes() {
+	public void testTwoNodes() {
 
 		LCA twoNodes = new LCA();
 		twoNodes.root = new Node(2);
@@ -37,7 +37,7 @@ public class LCATest {
 
 	//Test for tree size 7
 	@Test
-	public void treeSizeSeven() {
+	public void testTreeSizeSeven() {
 
 		LCA treeSizeSeven = new LCA();
 		treeSizeSeven.root = new Node(1);
@@ -58,7 +58,7 @@ public class LCATest {
 
 	//Test for nodes that don't exist
 	@Test
-	public void nonExistentNode() {
+	public void testNonExistentNode() {
 
 		LCA nonExistentNode = new LCA();
 		nonExistentNode.root = new Node(5);
@@ -78,7 +78,7 @@ public class LCATest {
 
 	//Test for same nodes
 	@Test
-	public void sameNode() {
+	public void testSameNode() {
 
 		LCA sameNode = new LCA();
 		sameNode.root = new Node(5);
