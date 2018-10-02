@@ -50,10 +50,13 @@ public class LCATest {
 
 		assertEquals("LCA (1,2)",1,treeSizeSeven.findLCA(1,2));
 		assertEquals("LCA (4,6)",1,treeSizeSeven.findLCA(4,6));
-
+		assertEquals("LCA(6,7)",3,treeSizeSeven.findLCA(6,7));
+		assertEquals("LCA(5,7)",1,treeSizeSeven.findLCA(5,7));
+		assertEquals("LCA(4,5)",2,treeSizeSeven.findLCA(4,5));
+		
 	}
 
-	//Test for non existing nodes
+	//Test for nodes that don't exist
 	@Test
 	public void nonExistentNode() {
 
