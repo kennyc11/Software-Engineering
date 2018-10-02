@@ -90,4 +90,23 @@ public class LCATest {
 		assertEquals("LCA(5,5)",5,sameNode.findLCA(5, 5));
 
 	}
+	
+	//Testing when one node is ancestor of other nodes
+	@Test
+	public void testAncestor() {
+		
+		LCA ancestor = new LCA();
+		ancestor.root = new Node(5);
+		ancestor.root.right = new Node(12);
+		ancestor.root.right.right = new Node(3);
+		ancestor.root.left = new Node(19);
+		ancestor.root.left.left = new Node(9);
+		ancestor.root.left.right = new Node(17);
+		ancestor.root.right.left = new Node(15);
+		
+		assertEquals("LCA(3,15)",12,ancestor.findLCA(3, 12));
+		assertEquals("LCA(9,19)",19,ancestor.findLCA(9, 19));
+		assertEquals("LCA(5,17)",5,ancestor.findLCA(5,17));
+		
+	}
 }
