@@ -68,6 +68,8 @@ public class LCATest {
 		nonExistentNode.root.right.right = new Node(13);
 		nonExistentNode.root.right.left = new Node(17);
 
+		assertEquals("LCA(12,17)",12,nonExistentNode.findLCA(12, 17));
+		
 		assertEquals("LCA(12,21)",-1,nonExistentNode.findLCA(12, 21));
 		assertEquals("LCA(32,17)",-1,nonExistentNode.findLCA(32, 17));
 
