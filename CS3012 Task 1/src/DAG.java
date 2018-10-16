@@ -30,8 +30,27 @@ public class DAG {
 	public int V() {
 		return V;	
 	}
-	
+
 	public int E() {
-        return E;
-    }
+		return E;
+	}
+	//Adds a directed edge from v->w
+	public void addEdge(int v, int w)
+	{
+		if((validateVertex(v)>0)&&(validateVertex(w)>0))
+		{
+			adj[v].add(w);
+			indegree[w]++;
+			E++;
+		}
+		else{
+			System.out.println("Please enter vertices between 0 & n-1");
+		}
+	}
+	private int validateVertex(int v) {
+		if (v < 0 || v >= V)
+			return -1;
+		else
+			return 1;
+	}
 }
