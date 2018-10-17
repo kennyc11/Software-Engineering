@@ -54,12 +54,48 @@ public class DAG {
 			return 1;
 	}
 	//Returns amount of directed edges incident to vertex v
-		public int indegree(int v) {
-			if(validateVertex(v)<0){
-				return -1;
-			}
-			else{
-				return indegree[v];
+	public int indegree(int v) {
+		if(validateVertex(v)<0){
+			return -1;
+		}
+		else{
+			return indegree[v];
+		}
+	}
+	//Returns amount of directed edges from vertex v
+	public int outdegree(int v) {
+		if(validateVertex(v)<0){
+			return -1;
+		}
+		else{
+			return adj[v].size();
+		}
+	}
+	//Returns the adjacent vertices to v
+	public Iterable<Integer> adj(int v)
+	{ return adj[v]; }
+
+
+
+	public boolean hasCycle() {
+
+		return hasCycle;
+	}
+
+	public void findCycle(int v) {
+
+		marked[v] = true;
+		stack[v] = true;
+
+		for (int w : adj(v)) {
+			if(!marked[w]) {
+				findCycle(w);
+			} else if (stack[w]) {
+				hasCycle = true;
+				return;
 			}
 		}
+
+		stack[v] = false;
+	}
 }
