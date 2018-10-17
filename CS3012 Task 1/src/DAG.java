@@ -53,4 +53,13 @@ public class DAG {
 		else
 			return 1;
 	}
+	//Returns amount of directed edges incident to vertex v
+		public int indegree(int v) {
+			if(validateVertex(v)<0){
+				return -1;
+			}
+			else{
+				return indegree[v];
+			}
+		}
 }
