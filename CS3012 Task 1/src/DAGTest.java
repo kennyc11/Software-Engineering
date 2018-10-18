@@ -48,4 +48,15 @@ public class DAGTest {
 		assertEquals("", 1, testInDegree.indegree(1));
 		assertEquals("", 2, testInDegree.indegree(2));
 	}
+	@Test
+	public void testOutDegree(){
+		DAG testOutDegree = new DAG(5);
+		testOutDegree.addEdge(0, 1);
+		testOutDegree.addEdge(0, 2);
+		testOutDegree.addEdge(1, 2);
+		
+		assertEquals("", -1, testOutDegree.outdegree(9));	
+		assertEquals("", 2, testOutDegree.outdegree(0));	
+		assertEquals("", 0, testOutDegree.outdegree(2));	
+	}
 }
