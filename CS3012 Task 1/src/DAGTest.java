@@ -149,7 +149,32 @@ public class DAGTest {
 			
 			assertEquals("", 2, LCA3.findLCA(2, 2));
 			assertEquals("", 1, LCA3.findLCA(1, 1));
+		}
+		@Test
+		public void testLCAForNonDAG(){
+			DAG LCA4 = new DAG(11);
+			LCA4.addEdge(0, 1);
+			LCA4.addEdge(0, 2);
+			LCA4.addEdge(2, 3);
+			LCA4.addEdge(3, 0);
+			LCA4.addEdge(3, 4);
+			
+			//Should return -1 if graph is not a DAG
+			assertEquals("", -1, LCA4.findLCA(2, 3));
+			assertEquals("", -1, LCA4.findLCA(3, 4));
+			assertEquals("", -1, LCA4.findLCA(1, 2));
+			assertEquals("", -1, LCA4.findLCA(0, 3));
+			assertEquals("", -1, LCA4.findLCA(1, 3));
 
+		}
+		
+		@Test
+		public void testLCAForEmptyDAG(){
+			DAG LCA5 = new DAG(5);
+			assertEquals("", -1, LCA5.findLCA(0, 2));
+			assertEquals("", -1, LCA5.findLCA(0, 0));
+			assertEquals("", -1, LCA5.findLCA(0, 3));
+			
 		}
 				
 }
