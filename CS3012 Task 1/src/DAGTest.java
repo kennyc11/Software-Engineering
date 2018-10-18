@@ -70,6 +70,7 @@ public class DAGTest {
 		@Test
 		public void testsForCycle(){
 				DAG cyclic = new DAG(20);
+				boolean cyclical = true;
 				cyclic.addEdge(0, 1);
 				cyclic.addEdge(1, 2);
 				cyclic.addEdge(2, 0);
@@ -81,6 +82,8 @@ public class DAGTest {
 				
 				//Cycle from 2-0
 				assertTrue(cyclic.hasCycle());
+				
+				assertEquals("",cyclical,cyclic.hasCycle());
 		}
 		
 		@Test
@@ -132,10 +135,21 @@ public class DAGTest {
 			assertEquals("", 3, LCA2.findLCA(4, 5));
 			assertEquals("", 3, LCA2.findLCA(3, 5));
 			assertEquals("", 1, LCA2.findLCA(1, 4));
-
-
-			
+	
 			//Check for no common ancestors
 			assertEquals("", -1, LCA2.findLCA(7, 3));
 		}
+		
+		@Test
+		public void testLCAForSameVertex(){
+			DAG LCA3 = new DAG(11);
+			LCA3.addEdge(0, 1);
+			LCA3.addEdge(0, 2);
+			LCA3.addEdge(1, 2);
+			
+			assertEquals("", 2, LCA3.findLCA(2, 2));
+			assertEquals("", 1, LCA3.findLCA(1, 1));
+
+		}
+				
 }
