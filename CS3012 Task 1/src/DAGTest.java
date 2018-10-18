@@ -114,4 +114,28 @@ public class DAGTest {
 			assertEquals("", 7, LCA.findLCA(8, 7));
 			assertEquals("", 6, LCA.findLCA(6, 8));
 		}
+		
+		@Test
+		public void testLCAForNoCommonAncestors(){
+			DAG LCA2 = new DAG(11);
+			LCA2.addEdge(0, 1);
+			LCA2.addEdge(0, 2);
+			LCA2.addEdge(1, 2);
+			LCA2.addEdge(2, 3);
+			LCA2.addEdge(3, 4);
+			LCA2.addEdge(1, 5);
+			LCA2.addEdge(3, 5);
+			
+			//Check it works ok
+			assertEquals("", 0, LCA2.findLCA(3, 1));
+			assertEquals("", 2, LCA2.findLCA(3, 2));
+			assertEquals("", 3, LCA2.findLCA(4, 5));
+			assertEquals("", 3, LCA2.findLCA(3, 5));
+			assertEquals("", 1, LCA2.findLCA(1, 4));
+
+
+			
+			//Check for no common ancestors
+			assertEquals("", -1, LCA2.findLCA(7, 3));
+		}
 }
