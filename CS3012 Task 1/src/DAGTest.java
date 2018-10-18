@@ -59,4 +59,27 @@ public class DAGTest {
 		assertEquals("", 2, testOutDegree.outdegree(0));	
 		assertEquals("", 0, testOutDegree.outdegree(2));	
 	}
+	
+	@Test(expected=Exception.class)
+	public void exceptionTest(){
+		//Can't make a directed graph with less than 0 vertices
+		DAG exception = new DAG(-2);
+	}
+	
+	//Following tests check Directed ACYCLIC Graph class works correctly
+		@Test
+		public void testsForCycle(){
+				DAG cyclic = new DAG(20);
+				cyclic.addEdge(0, 1);
+				cyclic.addEdge(1, 2);
+				cyclic.addEdge(2, 0);
+				cyclic.addEdge(2, 3);
+				cyclic.addEdge(3, 4);
+				
+				//Parameter is first vertex
+				cyclic.findCycle(2);
+				
+				//Cycle from 2-0
+				assertTrue(cyclic.hasCycle());
+		}
 }
